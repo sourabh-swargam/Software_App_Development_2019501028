@@ -4,7 +4,14 @@
 		<title>Sourabh's - MSIT Journey</title>
 	</head>
 	<body>
+		
+		<!-- Headings -->
+		<header align = center><strong>My MSIT Journey</strong></header>
+
 		<h2>Profile Picture</h2>
+		<br>
+
+		<!-- Image -->
 		<img src = 'C:\Users\sourabh\Desktop\MSIT\SAD\Software_App_Development_2019501028\Day 3\Images\sample.jpeg', alt = "Image" align="center" width = 10%>
 
 		<br>
@@ -12,20 +19,26 @@
 		<hr>
 
 		<h2>About Me</h2>
+
+		<!-- Paragraph -->
 		<p >I find technology fascinating and try to keep up to date on
 		what is currently going on. I'm very interested in gaming, and
 		how games are built.</p>
 		<p>The following are a few technologies that I find 
 		interesting:</p>
-		<ol>
+		
+		<!-- Unorderd List -->
+		<ul>
 			<li>Data Science</li>
 			<li>Machine Learning</li>
 			<li>Artificial Intelligence</li>
-			<li>Unity and Unreal</li>
-		</ol>
+			<li>Unity and Unreal Game Engine</li>
+		</ul>
 
 		<br>
 		<p>The following are my educational qualifications:</p>
+		
+		<!-- Table -->
 		<table>
 			<heading>
 				<tr>
@@ -66,7 +79,10 @@
 		<br><hr>
 
 		<h2>List of courses that I've worked on</h2>
-		<ul>
+		<h3>First Semester</h3>
+		
+		<!-- Ordered List -->
+		<ol>
 			<li>Computational Thinking</li>
 			<li>Computer Science Principles and Programming - 1</li>
 			<li>Introduction to Data Science</li>
@@ -75,35 +91,50 @@
 			<li>Algorithms and Data Structures - I</li>
 			<li>Database Management</li>
 			<li>Software Engineering Foundations</li>
+		</ol>
+
+		<h3>Second Semester</h3>
+		<ol>
 			<li>Algorithms and Data Structures - II</li>
 			<li>Introduction to Operating System</li>
 			<li>Computer Network Foundations</li>
 			<li>Introduction to Cyber Security</li>
 			<li>Software App Development</li>
-		</ul>
-
+		</ol>
 		<hr>
 		<br>
 
+		<!-- Form -->
 		<form>
 			<div>
 				<label>First Name</label>
-				<input type="text" name="FirstName">
+				<input type="text" name="FirstName" placeholder="John">
 			</div>
 			<br>
 			<div>
 				<label>Last Name</label>
-				<input type="text" name="LastName">
+				<input type="text" name="LastName" placeholder="Doe">
+			</div>
+			<br>
+			<div>
+				<label>Age</label>
+				<input type="number" name="age" placeholder= "18">
+			</div>
+			<br>
+			<div>
+				<label>Date of Birth</label>
+				<input type="date" name="DOB">
 			</div>
 			<br>
 			<div>
 				<label>Email</label>
-				<input type="email" name="Email">
+				<input type="email" name="Email" placeholder="jdoe@mail.com">
 			</div>
 			<br>
 			<div>
 				<label>Gender</label>
 				<select name = "gender">
+					<option value = "empty">...</option>
 					<option value = "male">Male</option>
 					<option value = "female">Female</option>
 					<option value = "other">Other</option>	
@@ -114,7 +145,14 @@
 				<label>Message</label>
 				<textarea name="message"></textarea>
 			</div>
+			<br>
+			<input type="submit" name="submit" value="Submit">
 		</form>
+
+		<br>
+
+		<!-- Button -->
+		<button>Does Nothing</button>
 
 	</body>
 </html>
