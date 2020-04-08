@@ -3,8 +3,8 @@ header
 	color:black;
 	font-size:80px;
 	font-weight: bolder;
-	background-color:grey;
-	/*background-image:linear-gradient(purple,violet,red,orange,white);*/
+	/*background-color:grey;*/
+	background-image:linear-gradient(grey, white);
 }
 
 body
@@ -26,13 +26,16 @@ body
 }
 
 .box-1{
-	background-color:skyblue;
+	/*background-color:skyblue;*/
+	background-image:linear-gradient(blue, skyblue);
 	color:black;
 }
 
 .image{
 	text-align: center;
-	background-color:skyblue;
+	/*background-color:skyblue;*/
+	background-image:linear-gradient(skyblue, white);
+
 	/*background: rgba(55,212,240,1);*/
 	margin-top:5px;
 	border: 3px solid grey;
@@ -42,7 +45,9 @@ body
 .template{
 	padding-top: 5px;
 	text-align: justify;
-	background-color:skyblue;
+	/*background-color:skyblue;*/
+	background-image:linear-gradient(skyblue, white);
+
 	margin-top:5px;
 	border: 3px solid grey;
 	align-items: center;
@@ -59,7 +64,9 @@ table, th, td {
 	padding: 5px 5px;
 	margin:8px;
 	text-align: justify;
-	background-color:skyblue;
+	/*background-color:skyblue;*/
+	background-image:linear-gradient(skyblue, white);
+	
 	margin-top:5px;
 	border: 3px solid grey;
 	align-items: center;
