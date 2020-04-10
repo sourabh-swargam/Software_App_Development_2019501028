@@ -1,0 +1,25 @@
+body{
+	background-image: url("../Images/images.jfif");
+}
+
+#top {
+	padding:15px;
+	background-image:linear-gradient(grey, #f1f1f1);
+	color:black;
+	border:10px;
+	text-align: center;
+	margin-bottom: 5px;
+}
+
+p {
+	text-align: justify;
+}
+
+h3 {
+	text-align: center;
+	color:#8566aa;
+}
+
+.col-sm-5 {
+	margin: 0px;
+}

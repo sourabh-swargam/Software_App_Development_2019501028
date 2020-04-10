@@ -1,0 +1,42 @@
+$color_one: red;
+$color_two: orange;
+$color_three: green;
+
+%template {
+	margin: auto;
+	padding: 10px 20px;
+}
+
+.centered {
+	margin-left: 25%;
+	text-align: center;
+	background-image:linear-gradient(to right, grey, white);
+	margin-right: 10px;
+	font-size: 20px;
+
+	ul {
+	@extend %template;
+	list-style-type: none;
+	/*background-color: #f1f1f1;*/
+	}
+
+	li a {
+	@extend %template;
+	display: block;
+	color: $color_three;
+	text-decoration: none;
+	}
+
+	li a:hover {
+	color:$color_one;
+	}
+}
+
+
+h4 {
+	color: $color_one;
+}
+
+p {
+	color: $color_two;
+}
