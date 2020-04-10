@@ -2,17 +2,23 @@
 	body {
 		background-image: url("../Images/images_one.jfif");
 	}
+	#top {
+	background-image:linear-gradient(red, white);
+	}
 }
 
 @media only screen and (min-width: 751px){
 	body {
 		background-image: url("../Images/images.jfif");
 	}
+
+	#top {
+	background-image:linear-gradient(grey, #f1f1f1);
+	}
 }
 
-#top {
+h2 {
 	padding:15px;
-	background-image:linear-gradient(grey, #f1f1f1);
 	color:black;
 	border:10px;
 	text-align: center;
