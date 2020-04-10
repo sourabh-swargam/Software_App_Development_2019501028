@@ -1,5 +1,13 @@
-body{
-	background-image: url("../Images/images.jfif");
+@media only screen and (max-width: 750px){
+	body {
+		background-image: url("../Images/images_one.jfif");
+	}
+}
+
+@media only screen and (min-width: 751px){
+	body {
+		background-image: url("../Images/images.jfif");
+	}
 }
 
 #top {
@@ -22,4 +30,17 @@ h3 {
 
 .col-sm-5 {
 	margin: 0px;
+}
+
+.grid {
+	display:grid;
+	padding:20px;
+	grid-column-gap: 5px;
+	grid-row-gap: 5px;
+	grid-template-columns: auto auto auto 
+}
+
+.grid-item {
+	display: card;
+	text-align: justify;
 }
