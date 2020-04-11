@@ -25,7 +25,7 @@ h2 {
 	margin-bottom: 5px;
 }
 
-p {
+.card-body > .card-text {
 	text-align: justify;
 }
 
@@ -58,3 +58,6 @@ table, th, td {
   padding-bottom: 10px;
 }
 
+a[href$=".html"] {
+	background-color: #97e5ef;
+}
