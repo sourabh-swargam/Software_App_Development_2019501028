@@ -1,0 +1,40 @@
+{% extends "layout.html" %}
+
+{% block heading %}
+	Registration Page
+{% endblock %}
+
+{% block body %}
+	<p>
+		ENTER YOUR DETAILS
+	</p>
+
+	<form action="{{ url_for('register') }}" method="post">
+  	<div class="form-group">
+  		<div class="row">
+  			<div class="col-2">
+  				<label for="exampleInputEmail1">Username</label>
+  			</div>
+  			<div class="col-8">
+		   		<input type="email" name="name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">	
+  			</div>
+  		</div>
+  	</div>
+
+  	<div class="form-group">
+  		<div class="row">
+  			<div class="col-2">
+    			<label for="exampleInputPassword1">Password</label>
+  			</div>
+  			<div class="col-8">
+    			<input type="password" name="pw" class="form-control" id="exampleInputPassword1" placeholder="Password">
+  			</div>
+  		</div>
+    	<small id="emailHelp" class="form-text text-muted">We'll never share your details with anyone else.</small>
+
+  	</div>
+
+  	<button class="btn btn-outline-primary">Submit</button>
+  </form>
+
+{% endblock %}

@@ -1,0 +1,21 @@
+.masthead {
+  height: 10vh;
+  min-height: 350px;
+  background-image: url('/static/header_image.jfif');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
+.content {
+	margin-left: 75px;
+	margin-right: 75px;
+	font-size: 18px; 
+	text-align: justify;
+	font: sans-serif;
+}
+
+.content h1 {
+	color: red;
+	font-size: 25px;
+}
