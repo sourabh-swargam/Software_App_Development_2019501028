@@ -5,6 +5,10 @@
 {% endblock %}
 
 {% block body %}
+
+  {% if flag %}
+    <h3>The user isn't registered. Please create an account.</h3>
+  {% endif %}
 	<p>
 		ENTER YOUR DETAILS
 	</p>

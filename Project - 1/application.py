@@ -1,11 +1,25 @@
-from flask import Flask, render_template, request
+from flask import Flask, render_template, request, session, url_for, redirect
+from flask_session import Session
 from flask_sqlalchemy import SQLAlchemy
 import os
 import datetime
+from functools import wraps
+
 
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
+app.config["SESSION_PERMANENT"] = False
+app.config["SESSION_TYPE"] = "filesystem"
+Session(app)
+
+def login_check(f):
+    @wraps(f)
+    def decorated_function(*args, **kwargs):
+        if 'key' not in session :
+            return redirect(url_for('auth'))
+        return f(*args, **kwargs)
+    return decorated_function
 
 db = SQLAlchemy(app)
 
@@ -27,13 +41,15 @@ if User.query.all() == []:
 
 @app.route("/")
 def index():
+	if 'key' in session and 'user' in session:
+		return render_template("user_home.html", name=session['user'])
 	return render_template("index.html")
 
 @app.route("/register", methods=["POST","GET"])
 def register():
 	print('called')
 	if request.method == "GET":
-		return render_template("register.html")
+		return render_template("register.html", flag = False)
 	elif request.method == "POST":
 		n = request.form.get("name")
 		pw = request.form.get("pw")
@@ -43,13 +59,14 @@ def register():
 			user = User(name=n, timestamp=timestamp, email=mail, pw=pw)
 			db.session.add(user)
 		except:
-			return render_template("error.html")
+			return render_template("error.html", type="error")
 		db.session.commit()
 		return render_template("success.html", name=user)
 
-@app.route("/login", methods=["POST","GET"])
-def login():
-	print('here')
+
+
+@app.route("/login", methods=["POST", "GET"])
+def auth():
 	if request.method == "GET":
 		return render_template("login.html")
 	elif request.method == "POST":
@@ -57,9 +74,26 @@ def login():
 		pw = request.form.get("pw")
 		user = User.query.filter_by(name=n).all()
 		if len(user) == 0:
-			return render_template("error.html")
-		print("THIS IS IT",user[0].name)
-		return render_template("success.html", name=user[0])
+			return render_template("register.html", flag=True)
+		user = user[0]
+		if n == user.name and pw == user.pw:
+			session['key'] = True
+			session['user'] = user.name
+			print('\n',session,'\n')
+			return redirect(url_for("user_home"))
+		else:
+			return render_template("error.html", type="wrong pw")
+
+@app.route("/user_home")
+@login_check
+def user_home():
+	return render_template('user_home.html', name = session['user'])
+
+
+@app.route("/logout")
+def logout():
+	session.clear()
+	return redirect(url_for("index"))
 
 @app.route("/admin")
 def admin():

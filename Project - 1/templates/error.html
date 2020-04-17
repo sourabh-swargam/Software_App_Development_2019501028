@@ -5,5 +5,11 @@
 {% endblock %}
 
 {% block body %}
-The user could not be added to database successfully.
+
+{% if type == "wrong pw" %}
+The user has entered incorrect password.
+{% endif %}
+{% if type == "error" %}
+The user could not be added.
+{% endif %}
 {% endblock %}
