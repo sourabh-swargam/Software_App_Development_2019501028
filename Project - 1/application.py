@@ -4,6 +4,7 @@ from flask_sqlalchemy import SQLAlchemy
 import os
 import datetime
 from functools import wraps
+from werkzeug.security import generate_password_hash, check_password_hash
 
 
 app = Flask(__name__)
@@ -34,10 +35,9 @@ class User(db.Model):
 	email = db.Column(db.String, nullable=False)
 	timestamp = db.Column(db.Date, nullable=False)
 
-if User.query.all() == []:
-	db.drop_all()
-	db.create_all()
-	db.session.commit()
+# db.drop_all()
+# db.create_all()
+# db.session.commit()
 
 @app.route("/")
 def index():
@@ -47,12 +47,11 @@ def index():
 
 @app.route("/register", methods=["POST","GET"])
 def register():
-	print('called')
 	if request.method == "GET":
 		return render_template("register.html", flag = False)
 	elif request.method == "POST":
 		n = request.form.get("name")
-		pw = request.form.get("pw")
+		pw = generate_password_hash(request.form.get("pw")) 
 		timestamp = datetime.datetime.now()
 		mail = request.form.get("email")
 		try:
@@ -65,7 +64,7 @@ def register():
 
 
 
-@app.route("/login", methods=["POST", "GET"])
+@app.route("/auth", methods=["POST", "GET"])
 def auth():
 	if request.method == "GET":
 		return render_template("login.html")
@@ -76,10 +75,9 @@ def auth():
 		if len(user) == 0:
 			return render_template("register.html", flag=True)
 		user = user[0]
-		if n == user.name and pw == user.pw:
+		if n == user.name and check_password_hash(user.pw, pw):
 			session['key'] = True
 			session['user'] = user.name
-			print('\n',session,'\n')
 			return redirect(url_for("user_home"))
 		else:
 			return render_template("error.html", type="wrong pw")
