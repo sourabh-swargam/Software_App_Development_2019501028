@@ -98,3 +98,6 @@ def admin():
 	user_list = User.query.all()
 	user_list.sort(key = lambda x: x.timestamp)
 	return render_template("admin.html", name=user_list)
+
+
+	
