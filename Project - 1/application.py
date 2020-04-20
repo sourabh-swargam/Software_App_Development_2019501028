@@ -57,6 +57,7 @@ def register():
 		try:
 			user = User(name=n, timestamp=timestamp, email=mail, pw=pw)
 			db.session.add(user)
+			print("added user", n, "to the database.")
 		except:
 			return render_template("error.html", type="error")
 		db.session.commit()
