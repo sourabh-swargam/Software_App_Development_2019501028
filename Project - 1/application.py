@@ -6,7 +6,7 @@ import datetime
 from functools import wraps
 from werkzeug.security import generate_password_hash, check_password_hash
 
-
+# Sample comment
 app = Flask(__name__)
 app.config["SQLALCHEMY_DATABASE_URI"] = os.getenv("DATABASE_URL")
 app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
